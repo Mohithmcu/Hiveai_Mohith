@@ -197,22 +197,35 @@ On our 160-sample evaluation, the escalation engine intercepted 38 out of 41 gro
 
 ---
 
-## 8. Failure Mode Analysis
+## 8. Failure Mode Analysis (Top 5 Failure Topologies)
 
-Deep-dive auditing of 43 error cases identified three dominant failure topologies:
+Deep-dive auditing of error cases across our 160-sample evaluation identified five distinct failure topologies:
 
-1. **Sarcasm and Indirect Complaint Inversion (41% of classification errors):**
-   - *Customer:* "Love when your app decides I don't actually need to hear the bridge of my favorite song."
+1. **Sarcasm and Indirect Complaint Inversion:**
+   - *Customer Tweet:* "Love when your app decides I don't actually need to hear the bridge of my favorite song."
    - *Model Prediction:* `General Complaint / Sentiment` (Confidence: 0.54) → Soft Escalation Triggered.
-   - *Failure mechanism:* The surface semantics contain positive sentiment markers ("Love", "favorite song") conflicting with the underlying playback bug.
-2. **Dual-Intent Concurrency (33% of classification errors):**
-   - *Customer:* "App keeps crashing on startup and you billed me twice for family plan."
+   - *Hypothesis / Mechanism:* The surface semantics contain positive sentiment markers ("Love", "favorite song") that pull the dense embedding toward Sentiment rather than Playback Bug. The model resolves surface polarity rather than pragmatic intent.
+
+2. **Dual-Intent Concurrency (Multi-Issue Collision):**
+   - *Customer Tweet:* "App keeps crashing on startup and you billed me twice for family plan."
    - *Model Prediction:* `App / Playback Bug` (Ignored billing dispute).
-   - *Failure mechanism:* Single-label classification schemes force an arbitrary choice when two distinct issues co-occur.
-3. **Retrieval Over-Specificity (26% of low-scoring drafts):**
-   - *Customer:* Inquiring about a specific local Linux distribution packaging bug.
-   - *Retrieved context:* Generic Windows/Mac audio playback threads.
-   - *Result:* The model drafts generic troubleshooting steps ("Clear cache and restart") that do not resolve the niche platform issue.
+   - *Hypothesis / Mechanism:* Single-label classification schemes force an arbitrary choice when two distinct issues co-occur. The bug tokens dominate initial sentence attention, causing the financial dispute to be omitted from retrieval and resolution.
+
+3. **Retrieval Over-Specificity / Platform Gap:**
+   - *Customer Tweet:* Inquiring about a specific local Linux distribution packaging bug (e.g., ALSA audio backend failure).
+   - *Retrieved Context:* Generic Windows/Mac audio playback threads.
+   - *Result:* The model drafts generic troubleshooting steps ("Clear cache and restart") that fail to resolve the platform-specific dependency issue.
+   - *Hypothesis / Mechanism:* High-volume consumer platforms skew retrieval toward mainstream mobile OS resolutions; tail platform complaints retrieve semantically proximate but functionally irrelevant troubleshooting advice.
+
+4. **Obfuscated Account Compromise (Soft Takeover Signals):**
+   - *Customer Tweet:* "Got an email saying my password was changed from Vietnam but I didn't request this."
+   - *Model Prediction:* `Account / Login Issue` (Confidence: 0.72) → Drafted standard password reset link instead of immediate security escalation.
+   - *Hypothesis / Mechanism:* Lacking explicit threat or compromise keywords like "hacked" or "stolen", geographic anomaly signals fail hard regex checks and appear to the classifier as standard routine password recovery inquiries.
+
+5. **Cross-Lingual Misrouting (Multilingual Queries):**
+   - *Customer Tweet:* "ola como faco para cancelar minha assinatura premium no brasil" (Portuguese: how do I cancel my premium subscription in Brazil).
+   - *Model Prediction:* `Premium / Billing` (Confidence: 0.48) → Drafted standard English cancellation guide (`spotify.com/account`).
+   - *Hypothesis / Mechanism:* Modern multilingual LLMs comprehend the foreign semantic intent (billing cancellation), but because the retrieval index and system prompt enforce English brand templates, the agent responds in English to a non-English speaker rather than routing to regional language support.
 
 ---
 
@@ -232,8 +245,12 @@ Deep-dive auditing of 43 error cases identified three dominant failure topologie
   - 10,000 queries = 3.8M input tokens ($0.285) + 0.45M output tokens ($0.135) = **$0.42 per 10,000 customer tickets**.
   - Highly cost-effective relative to human tier-1 triage ($3.00–$6.00 per handled ticket).
 
-### 9.3 Roadmap for Production Deployment
-1. **Multi-Turn Context Ingestion:** Expand retrieval and classification pipelines to reconstruct the prior 3 conversation turns from Twitter reply chains.
-2. **Multi-Label Intent Scoring:** Replace single-label classification with multi-label probability outputs to gracefully support combined bug/billing complaints.
-3. **Dynamic Few-Shot Exemplars:** Select few-shot classification prompts dynamically based on semantic proximity to the input tweet rather than using static prompts.
-4. **Cross-Model Independent Judge:** Migrate automated evaluation pipelines to an independent model family (e.g. Claude 3.5 Sonnet or GPT-4o) to remove intra-family judge bias.
+---
+
+## 10. What We Would Do Next With One More Week
+
+1. **Multi-Turn Conversation Thread Ingestion:** Reconstruct full 3-to-5 turn dialogue chains from the Twitter parent tweet IDs (`in_response_to_tweet_id`). Incorporating conversation history eliminates the "single-turn illusion" and allows the agent to recognize when prior suggested steps already failed.
+2. **Multi-Label Intent Architecture:** Replace the 7-class mutually exclusive classifier with a multi-label sigmoid scoring head ($P(\text{intent}_i) \ge \tau$) to accurately decompose combined bug + billing complaints into dual routing actions.
+3. **Dynamic Few-Shot Retrieval for Classification:** Rather than using a static prompt with fixed examples, retrieve the top 3 most semantically similar verified historical customer tweets to construct dynamic few-shot classification prompts.
+4. **Independent Cross-Family LLM Judge:** Implement an automated validation pipeline with an external model family (such as Claude 3.5 Sonnet or GPT-4o) to eliminate intra-family judge leniency and provide stricter discriminative scoring.
+5. **Real-Time Knowledge Base Synchronization:** Connect the FAISS retriever to live Spotify Community RSS and status feeds (`@SpotifyStatus`) to prevent hallucinating troubleshooting advice during global platform outages.
