@@ -1,6 +1,6 @@
 # SpotifyCares AI Support Agent
 
-**Hiver SDE Intern Take-Home | Brand: SpotifyCares | Model: Gemini 3.6 Flash**
+Model: Gemini 3.6 Flash**
 
 ## What this builds
 
