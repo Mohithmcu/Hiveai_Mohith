@@ -21,14 +21,14 @@ An AI support agent for SpotifyCares that:
 # 1. Clone and enter repo
 cd Hiver
 
-# 2. Install dependencies (~2 min)
+# 2. Install dependencies 
 pip install -r requirements.txt
 
 # 3. Add API key
 cp .env.example .env
 # Edit .env and set GEMINI_API_KEY=your_key_here
 
-# 4. Run full pipeline (~10-12 min total)
+# 4. Run full pipeline 
 # Windows:
 .\run.ps1
 
