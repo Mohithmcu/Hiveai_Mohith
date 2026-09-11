@@ -1,0 +1,32 @@
+# data & raw datasets
+data/raw/
+data/cache/*
+!data/cache/intent_map.json
+!data/cache/.gitkeep
+
+# env & secrets
+.env
+*.env
+.env.*
+!.env.example
+
+# python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+ENV/
+
+# embeddings & binary cache
+*.npy
+*.index
+*.parquet
+
+# jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db

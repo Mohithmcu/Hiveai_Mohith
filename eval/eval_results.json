@@ -1,0 +1,113 @@
+{
+  "intent": {
+    "accuracy": 0.8313,
+    "macro_f1": 0.8319,
+    "macro_f1_ci_95": [
+      0.7652,
+      0.8872
+    ],
+    "classification_report": "                               precision    recall  f1-score   support\n\n        Account / Login Issue       0.95      0.83      0.88        23\n           App / Playback Bug       0.84      0.88      0.86        24\n     Content / Playlist Issue       0.75      0.91      0.82        23\n              Feature Request       0.95      0.86      0.90        22\nGeneral Complaint / Sentiment       0.71      0.65      0.68        23\n       Other / Unclassifiable       0.76      0.86      0.81        22\n            Premium / Billing       0.90      0.83      0.86        23\n\n                     accuracy                           0.83       160\n                    macro avg       0.84      0.83      0.83       160\n                 weighted avg       0.84      0.83      0.83       160\n",
+    "confusion_matrix": [
+      [
+        19,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        21,
+        1,
+        0,
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        2,
+        21,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        2,
+        19,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        3,
+        0,
+        15,
+        4,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        2,
+        19,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        1,
+        1,
+        19
+      ]
+    ]
+  },
+  "escalation": {
+    "precision": 0.9048,
+    "recall_PRIMARY": 0.9268,
+    "recall_ci_95": [
+      0.8333,
+      1.0
+    ],
+    "f1": 0.9157,
+    "confusion_matrix": [
+      [
+        115,
+        4
+      ],
+      [
+        3,
+        38
+      ]
+    ],
+    "note": "Recall is PRIMARY: a missed escalation costs more than a false alarm."
+  },
+  "reply": {
+    "faithfulness_avg": 0.391,
+    "relevance_avg": 5.0,
+    "groundedness_avg": 4.9407,
+    "tone_avg": 5.0,
+    "actionability_avg": 5.0,
+    "safety_avg": 5.0,
+    "composite_avg": 4.9881
+  },
+  "agreement": {
+    "cohen_kappa": 0.5567,
+    "spearman_rho": 0.8718,
+    "spearman_pval": 0.0,
+    "n_samples": 30,
+    "n_large_disagreements": 0,
+    "kappa_interpretation": "moderate (0.4\u20130.6)"
+  }
+}

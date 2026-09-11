@@ -1,0 +1,30 @@
+{
+  "App / Playback Bug": {
+    "cluster_id": 0,
+    "count": 4663
+  },
+  "Account / Login Issue": {
+    "cluster_id": 1,
+    "count": 5523
+  },
+  "Premium / Billing": {
+    "cluster_id": 2,
+    "count": 4576
+  },
+  "Content / Playlist Issue": {
+    "cluster_id": 3,
+    "count": 5156
+  },
+  "Feature Request": {
+    "cluster_id": 4,
+    "count": 3364
+  },
+  "General Complaint / Sentiment": {
+    "cluster_id": 5,
+    "count": 2588
+  },
+  "Other / Unclassifiable": {
+    "cluster_id": 6,
+    "count": 6493
+  }
+}

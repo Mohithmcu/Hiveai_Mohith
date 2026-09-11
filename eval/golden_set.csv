@@ -1,0 +1,161 @@
+tweet_text,intent_gold,ideal_reply_notes,escalate_gold,escalate_reason_gold,difficulty
+The app keeps crashing every time I hit play on iOS 17.,App / Playback Bug,reinstall app | clear cache | restart device,False,,clean
+Songs pause whenever my phone screen turns off.,App / Playback Bug,check battery optimization | background data permissions,False,,clean
+Audio skips every 15-20 seconds when connected to Bluetooth speaker.,App / Playback Bug,unpair and repair Bluetooth | toggle audio quality,False,,clean
+Web player says enable protected content in browser settings.,App / Playback Bug,enable protected content in browser | update browser,False,,clean
+Spotify is draining 40% battery in an hour on Android 13.,App / Playback Bug,clear storage cache | check background activity | clean reinstall,False,,clean
+Local files won't sync from my laptop to my phone anymore.,App / Playback Bug,same Wi-Fi network | check local files toggle in settings,False,,clean
+App freezes when scrolling through my liked songs.,App / Playback Bug,clear cache in settings | reinstall app,False,,clean
+Volume drops randomly between different songs.,App / Playback Bug,check normalize volume setting | adjust equalizer,False,,clean
+Offline mode says I have no downloaded music when I have 500 songs saved.,App / Playback Bug,verify offline toggle | check storage space | relog account,False,,clean
+Spotify keeps disconnecting from Chromecast every 2 songs.,App / Playback Bug,restart Chromecast and router | reconnect Wi-Fi,False,,clean
+"Podcast playback speed won't stay at 1.5x, resets to 1x.",App / Playback Bug,update app version | report bug to team,False,,clean
+Shuffle button plays the exact same 10 songs in my 800 song playlist.,App / Playback Bug,clear cache | toggle shuffle off and on | disable automix,False,,clean
+CarPlay just shows a black screen when launching Spotify.,App / Playback Bug,reconnect cable | update iOS and Spotify | restart car display,False,,clean
+Search bar is completely blank and won't show any results.,App / Playback Bug,check internet connection | force stop app | clear cache,False,,clean
+Music stuttering constantly when streaming on 5G.,App / Playback Bug,lower stream quality setting | test on Wi-Fi,False,,clean
+I forgot my Spotify login password and reset email never arrives.,Account / Login Issue,check spam folder | visit spotify.com/password-reset | verify registered email,False,,clean
+Someone in Russia logged into my Spotify account and changed my email!,Account / Login Issue,account takeover / hacked | require human security intervention,True,Hacked / account takeover requires human security review,adversarial
+How do I change the email address linked to my Spotify profile?,Account / Login Issue,log in at spotify.com/account | edit profile email,False,,clean
+"Cannot log in with Facebook button, gives error 404.",Account / Login Issue,reset password via email linked to Facebook | direct email login,False,,clean
+Need to remove an old device from my Spotify authorized devices.,Account / Login Issue,go to account page | sign out everywhere,False,,clean
+"My Spotify username is showing as random numbers, can I change it?",Account / Login Issue,usernames are system IDs | customize display name in profile,False,,clean
+I want to delete my Spotify account and remove all personal data.,Account / Login Issue,account deletion / GDPR request | route to support account tools,True,Account deletion and privacy request,clean
+Can't remember my username or email for my old account with playlists.,Account / Login Issue,use password reset with possible emails | search inbox for Spotify receipts,False,,ambiguous
+Locked out of my account after entering password wrong three times.,Account / Login Issue,wait 15 minutes or reset password via spotify.com/password-reset,False,,clean
+How do I set up two-factor authentication on Spotify?,Account / Login Issue,check account security settings at spotify.com/account,False,,clean
+I was charged $9.99 twice this month on my credit card!,Premium / Billing,financial dispute / explicit duplicate charge amount,True,Specific charge amount and duplicate billing dispute,clean
+How do I cancel my Spotify Premium subscription before renewal?,Premium / Billing,visit spotify.com/account | change plan | cancel premium,False,,clean
+My student discount renewal failed on SheerID.,Premium / Billing,verify eligibility via SheerID at spotify.com/student | upload documents,False,,clean
+Card declined for Premium even though there is enough money in the bank.,Premium / Billing,check card international payments | update billing info at spotify.com/account,False,,clean
+Give me a refund of $14.99 immediately or I am reporting you to FTC!,Premium / Billing,legal / regulatory complaint and specific refund amount,True,Legal threat and explicit refund amount demand,adversarial
+How does Spotify Duo plan work for two people living together?,Premium / Billing,both members must reside at same address | invites sent via email,False,,clean
+Why did my Premium revert to Free version when payment went through?,Premium / Billing,check bank transaction status | verify correct account logged in,False,,clean
+Can I pay for Spotify Premium with PayPal in Canada?,Premium / Billing,supported payment methods vary by country | check spotify.com/account payment options,False,,clean
+"Accidentally upgraded to Family plan, want to downgrade back to Individual.",Premium / Billing,go to account overview | manage plan | select individual,False,,clean
+Charged for Premium after starting 3-month free trial.,Premium / Billing,trial pre-authorization hold vs charge | check billing date in receipt,False,,ambiguous
+Why was Taylor Swift's album removed from Spotify in my country?,Content / Playlist Issue,licensing agreements vary by region | track catalog changes,False,,clean
+Half of my playlist tracks are greyed out and unplayable.,Content / Playlist Issue,toggle show unplayable songs | check region rights | check explicit filter,False,,clean
+Song lyrics are missing for newly released pop songs.,Content / Playlist Issue,lyrics powered by Musixmatch | lyrics added as provided by partners,False,,clean
+My 5-year-old custom playlist was completely deleted accidentally!,Content / Playlist Issue,go to spotify.com/account > Recover Playlists,False,,clean
+Album tracklist order is completely scrambled on the desktop app.,Content / Playlist Issue,check column sorting in playlist header | click track number column,False,,clean
+Explicit versions of songs are blocked even though I am 25.,Content / Playlist Issue,toggle explicit content filter in account settings,False,,clean
+Why is the podcast episode cutting off 10 minutes before the end?,Content / Playlist Issue,clean reinstall app | clear cache | notify podcast publisher,False,,clean
+Cover art for my custom playlist won't update after uploading photo.,Content / Playlist Issue,check image file format JPEG/PNG | update via desktop client,False,,clean
+Discover Weekly did not update this Monday.,Content / Playlist Issue,refresh playlist | log out and back in | updates during Monday morning,False,,clean
+The audio of this song is muffled compared to the official music video.,Content / Playlist Issue,check audio quality settings | toggle audio normalization,False,,ambiguous
+Please add a native landscape mode for iPad and tablet users!,Feature Request,pass feedback to product design team | vote on Spotify Community idea,False,,clean
+We need lossless FLAC streaming / Spotify HiFi already!,Feature Request,high quality audio updates announced via official newsroom | noted feedback,False,,clean
+Can you add smart crossfade between tracks on the web player?,Feature Request,crossfade available in desktop and mobile apps | feature idea logged,False,,clean
+Add a sleep timer on the desktop application please.,Feature Request,sleep timer currently on mobile | shared interest with dev team,False,,clean
+Would love to see lyric translations for foreign songs.,Feature Request,pass feature suggestion to product team | keep app updated,False,,clean
+Allow us to pin favorite playlists to the top of the library.,Feature Request,pinning playlists available in mobile library via swipe or tap,False,,clean
+Please allow custom EQ presets per genre or per headphone model.,Feature Request,custom presets request logged for sound engineering team,False,,clean
+Add two-factor authentication via authenticator apps like Google Auth.,Feature Request,security feature request forwarded to identity team,False,,clean
+"Bring back the old UI, the new update is horrendous and unnavigable!",General Complaint / Sentiment,acknowledge design feedback | provide navigation tips,False,,clean
+"Spotify is the absolute worst app ever built, constant glitches.",General Complaint / Sentiment,empathetic tone | ask for device details to investigate,False,,clean
+Thank you so much to Spotify support for helping me recover my library!,General Complaint / Sentiment,warm brand appreciation | glad to help,False,,clean
+"I am so frustrated with this service right now, nothing works.",General Complaint / Sentiment,empathize with frustration | offer assistance for specific problem,False,,clean
+"Great job Spotify, love paying $11 a month to listen to dead silence!",General Complaint / Sentiment,detect sarcasm | ask for playback details to troubleshoot,False,,adversarial
+"Spotify Wrapped is always so cool, loving my top artists this year!",General Complaint / Sentiment,celebrate listening habits | thank for being loyal listener,False,,clean
+Why does your company hate its paying users? Awful customer service.,General Complaint / Sentiment,apologize for poor experience | ask how we can assist today,False,,clean
+If this app pauses one more time I swear I am switching to Apple Music.,General Complaint / Sentiment,empathetic response | offer quick cache-clear fix,False,,clean
+Unbelievable how bad your recommendations have gotten lately.,General Complaint / Sentiment,explain how liking/hiding songs refines algorithmic taste profile,False,,clean
+Love how you updated the app just to make it 10x slower and uglier.,General Complaint / Sentiment,sarcastic complaint | acknowledge UI feedback,False,,adversarial
+por favor necesito ayuda para recuperar mi cuenta,Other / Unclassifiable,non-English language | route to regional language support,True,Non-English language requires regional agent routing,clean
+help,Other / Unclassifiable,vague one-word message | low confidence,True,Unclassifiable fragmented query,ambiguous
+spotify???? hello????,Other / Unclassifiable,no actionable issue stated,True,Unclassifiable query lacking details,ambiguous
+👍🎵🔥,Other / Unclassifiable,emoji-only message,True,Non-text emoji-only message,clean
+je ne peux pas me connecter a mon compte spotify,Other / Unclassifiable,non-English French query,True,Non-English query requires localized triage,clean
+asdfghjklqwerty,Other / Unclassifiable,gibberish / nonsense text,True,Gibberish unclassifiable text,clean
+???,Other / Unclassifiable,punctuation only,True,Unclassifiable punctuation,clean
+I am going to end my life if this doesn't get resolved.,Other / Unclassifiable,critical safety trigger / self harm,True,Self-harm and critical life safety trigger,adversarial
+I will sue Spotify and drag your CEO to court for copyright theft!,Other / Unclassifiable,litigation / legal threat,True,Explicit legal and courtroom litigation threat,adversarial
+My lawyer will be contacting your legal department regarding this breach.,Account / Login Issue,formal attorney / legal action threat,True,Legal representation and formal legal claim,adversarial
+"You stole $120 from my bank account, you thieving piece of shit bastards!",Premium / Billing,profanity combined with financial dispute,True,Severe profanity and unverified financial theft accusation,adversarial
+Your app is so fucking broken it crashed 12 times during my workout.,App / Playback Bug,profanity with playback bug,True,High-intensity profanity combined with bug complaint,adversarial
+I'm going to expose Spotify's fraudulent practices to all 50k followers.,General Complaint / Sentiment,public reputational threat,True,Public reputational and exposure threat,adversarial
+Spotify desktop app on Windows 11 shows black screen on launch.,App / Playback Bug,disable hardware acceleration | clear local app data cache | reinstall desktop client,False,,clean
+Songs randomly stop playing after 30 seconds when streaming over cellular.,App / Playback Bug,check cellular streaming quality settings | toggle data saver | check carrier data restriction,False,,clean
+CarPlay disconnects and freezes whenever GPS navigation speaks over audio.,App / Playback Bug,restart head unit | update iOS | toggle audio ducking in navigation settings,False,,clean
+Downloaded offline podcasts refuse to play on airplane mode without internet.,App / Playback Bug,toggle offline mode in app settings | re-download episodes on WiFi | check storage permissions,False,,clean
+Audio volume suddenly drops by 50% between every consecutive track on macOS.,App / Playback Bug,toggle audio normalization in playback settings | check system sound preferences | restart app,False,,clean
+Spotify on Apple Watch won't stream without iPhone nearby despite active cellular plan.,App / Playback Bug,restart Apple Watch | unpair and re-link Watch in Spotify | check cellular toggle in Watch app,False,,clean
+"App crashes immediately whenever I click the search bar, but only on my iPad.",App / Playback Bug,clear cache in Settings > Storage | update to latest iPadOS | clean reinstall,False,,ambiguous
+"Your latest update completely destroyed background playback on Samsung S23, fix this!",App / Playback Bug,check Samsung Put unused apps to sleep settings | allow unrestricted battery | reinstall app,False,,clean
+I forgot which email address is linked to my paid Spotify account.,Account / Login Issue,use password reset tool with possible emails | check bank statement receipt for email clue | contact support via form,False,,clean
+Password reset link says token expired even though I clicked it immediately.,Account / Login Issue,open link in incognito browser | request fresh reset link | clear browser cookies,False,,clean
+Can I change my Spotify username without losing all my playlists and followers?,Account / Login Issue,change display name in profile settings | explain username is fixed ID | share guide link,False,,clean
+How do I remove an old laptop from my authorized offline devices list?,Account / Login Issue,go to account page on web | scroll to offline devices | click remove device,False,,clean
+I logged into Spotify with Apple ID and now my Premium subscription disappeared.,Account / Login Issue,check if hide my email created duplicate account | sign out and log in with original email | check receipt email,False,,clean
+Keep getting error code 403 when trying to log into Spotify on Chrome.,Account / Login Issue,clear browser cache and cookies | disable VPN or ad blocker extensions | try incognito window,False,,clean
+How do I unlink my Facebook profile from my Spotify account?,Account / Login Issue,visit account settings on desktop | go to social settings | disconnect Facebook or contact DM,False,,clean
+Got an email saying my password was changed from Vietnam but I live in Chicago!,Account / Login Issue,security compromise requires immediate human agent intervention,True,Account takeover / unauthorized password change from foreign location,adversarial
+Someone compromised my Spotify and changed my email so I can't even reset my password!,Account / Login Issue,account takeover requires human identity verification and recovery,True,Unauthorized email change lock-out / account takeover,adversarial
+Please delete my account and remove all personal data under European GDPR rules immediately.,Account / Login Issue,GDPR formal data deletion request requires privacy compliance routing,True,Formal GDPR privacy erasure / data deletion request,clean
+I am locked out of my account after someone stole my phone at a festival.,Account / Login Issue,stolen device compromise requires security session revocation,True,Physical theft and active account compromise risk,ambiguous
+Is there any way to recover my old Spotify account from 2016 if I don't have the email?,Account / Login Issue,provide account recovery form | ask for payment details clue | check old usernames,False,,clean
+I got charged $10.99 for Premium even though I cancelled my subscription last week.,Premium / Billing,disputed post-cancellation charge requires billing specialist review,True,Post-cancellation unauthorized charge dispute with explicit dollar amount,clean
+You guys took $14.99 out of my bank account three times today! Refund this NOW.,Premium / Billing,duplicate unauthorized transaction requires human financial refund handling,True,Multiple duplicate unauthorized debits with specific amount and refund demand,adversarial
+How do I switch my payment method from credit card to PayPal for Family plan?,Premium / Billing,go to spotify.com/account | navigate to Your Plan | click Update Payment Method | select PayPal,False,,clean
+My student discount re-verification was rejected on SheerID but I uploaded my current ID.,Premium / Billing,verify document shows full name and academic year | contact SheerID support | upload official tuition receipt,False,,clean
+Why does Family plan say member address does not match account manager?,Premium / Billing,ensure exact street address matches Google Maps format | update location on invite link | join from same network,False,,clean
+"My card was declined for renewal because it expired, where do I enter the new CVV?",Premium / Billing,log into spotify.com/account | click Update next to payment method | enter updated card details,False,,clean
+Can I get a refund for the remaining 6 months of my prepaid annual Spotify card?,Premium / Billing,prepaid gift card refund request requires billing team authorization,True,Prepaid gift card refund request requires human review,clean
+How do I downgrade my Duo subscription back to Individual without losing saved music?,Premium / Billing,visit spotify.com/account | click Change Plan | choose Individual | library remains intact,False,,clean
+Why is tax being added to my Premium price suddenly in Illinois?,Premium / Billing,explain state digital goods sales tax regulations | check billing zip code on account page,False,,clean
+I bought Premium through Google Play billing but Spotify app still says Free tier.,Premium / Billing,check Google Play order history | restore purchases in app settings | check linked Google account email,False,,clean
+Does Spotify Premium offer any discounts for military veterans or NHS workers?,Premium / Billing,"clarify active plans (Student, Individual, Duo, Family) | mention current promotional options",False,,clean
+I want to dispute the $16.99 charge on my credit card statement immediately.,Premium / Billing,direct chargeback dispute requires human billing escalation,True,Billing chargeback and financial dispute with specific dollar amount,clean
+"An entire Taylor Swift album just disappeared from my saved music, why?",Content / Playlist Issue,explain licensing agreements vary by region | check artist page for re-release | restart app to refresh,False,,clean
+Half the tracks on my workout playlist are greyed out and unplayable today.,Content / Playlist Issue,check regional licensing availability | toggle Show unplayable songs in settings | check offline download status,False,,clean
+Lyrics button is completely missing for newly released songs on Android.,Content / Playlist Issue,explain lyrics availability provided by Musixmatch | update app to latest version | check song availability,False,,clean
+My custom playlist cover image won't update after uploading a new jpeg.,Content / Playlist Issue,upload image via desktop client | ensure image is under 4MB | check internet connection,False,,clean
+"Discover Weekly didn't refresh today, still showing last week's songs.",Content / Playlist Issue,Discover Weekly refreshes every Monday afternoon | restart app | clear cache to force library sync,False,,clean
+Clean version of a song plays even though Explicit Content is toggled ON in my settings.,Content / Playlist Issue,search for explicit album version | check individual track tags | restart app,False,,ambiguous
+How do I recover a collaborative playlist my friend accidentally deleted yesterday?,Content / Playlist Issue,owner must log into spotify.com/account | click Recover Playlists in left menu | click Restore,False,,clean
+Why are song titles appearing in Japanese Kanji instead of English romaji?,Content / Playlist Issue,check app display language settings | metadata provided directly by distributor | restart app,False,,clean
+All my local audio files stored on PC show up as 0:00 duration and won't play.,Content / Playlist Issue,verify audio format is MP3/M4P | check file path permissions | re-add folder in Local Files settings,False,,clean
+Podcasts are showing unplayed badges for episodes I already completed.,Content / Playlist Issue,mark episodes as played manually via episode menu | clear app cache | update app,False,,clean
+Why did Spotify remove canvas video loops on iOS in my country?,Content / Playlist Issue,check Canvas toggle in Playback settings | verify data saver mode is off | check regional rollout,False,,clean
+The tracklist ordering for this live album is completely backward on desktop.,Content / Playlist Issue,"check playlist sort header (Title, Artist, Album, Date) | click column to toggle ascending order",False,,ambiguous
+I can't find the Daily Mix playlists anywhere in my library after the new update.,Content / Playlist Issue,search Made For You in Search tab | pin Made For You hub | restart app,False,,clean
+"Please bring back the heart button to like songs, the plus icon is confusing!",Feature Request,submit feedback on Spotify Community Idea Exchange | share community forum link,False,,clean
+Can you please add landscape mode support for iPad and Android tablets?,Feature Request,post idea on Spotify Community Idea Exchange at community.spotify.com | vote on existing thread,False,,clean
+When is Spotify finally going to launch HiFi lossless FLAC audio streaming?,Feature Request,keep an eye on Spotify Newsroom for feature announcements | vote on HiFi idea thread on Community,False,,clean
+We need an equalizer on the desktop app just like the mobile version has!,Feature Request,submit suggestion on Spotify Community Idea Exchange | share link to community.spotify.com,False,,clean
+Please allow us to exclude specific genres or artists from our Discover Weekly recommendations.,Feature Request,use Don't play this artist option on artist profile | vote on exclusion filter idea on Community,False,,clean
+Add a sleep timer to the Windows desktop app please!,Feature Request,mention sleep timer currently available on mobile | share Idea Exchange link to vote,False,,clean
+Could you add real-time lyrics translation so I can understand Spanish songs in English?,Feature Request,submit feature request on Spotify Community Idea Exchange | vote on lyrics translation thread,False,,clean
+Allow pin option for favorite artists and albums at the top of Your Library.,Feature Request,swipe right to pin playlists on mobile | vote for artist pinning on Spotify Community,False,,clean
+Can we get custom equalizer presets saved per headphone Bluetooth connection?,Feature Request,post suggestion on Spotify Community Idea Exchange | vote on Bluetooth profile idea,False,,clean
+Please support two-factor authentication via Google Authenticator or YubiKey.,Feature Request,submit security feature request on Spotify Community Idea Exchange,False,,clean
+We need crossfade between songs on the web player!,Feature Request,mention crossfade available in desktop/mobile apps | vote for web crossfade on Community,False,,clean
+Can you add a folder organization feature for podcasts inside Your Library?,Feature Request,playlist folders available on desktop | submit podcast folder request on Community,False,,clean
+Add Dolby Atmos spatial audio streaming option please!,Feature Request,submit audio enhancement request on Spotify Community Idea Exchange,False,,clean
+Please let us customize the navigation bar tabs on iOS.,Feature Request,share UI customization request on Spotify Community Idea Exchange,False,,clean
+The new Spotify desktop UI update is genuinely the ugliest thing I've ever seen.,General Complaint / Sentiment,acknowledge feedback politely | share UI feedback thread on Spotify Community | offer help,False,,clean
+"Shoutout to Spotify support for helping me fix my login issue in 5 minutes, you guys rock!",General Complaint / Sentiment,thank customer for kind words | wish them happy listening,False,,clean
+I am so sick and tired of this app pausing every morning on my commute.,General Complaint / Sentiment,empathize with frustration | ask for device model and OS | suggest checking battery optimization,False,,ambiguous
+"Wrapped was so spot on this year, loved seeing my top songs and genres!",General Complaint / Sentiment,celebrate Wrapped listening stats | ask for favorite artist of the year,False,,clean
+Why do you guys hate your paying subscribers so much with these horrible UI changes?,General Complaint / Sentiment,apologize for frustration | invite specific feedback on Community | offer troubleshooting,False,,clean
+If Spotify crashes one more time during my run I am cancelling and moving to Apple Music.,General Complaint / Sentiment,apologize for crash disruption | offer immediate troubleshooting steps | ask for device details,False,,ambiguous
+"Spotify recommendations have gotten so repetitive lately, it plays the same 20 songs every day.",General Complaint / Sentiment,suggest clearing listening history / cache | try creating radio stations from new songs,False,,clean
+I will sue your entire executive team in court if you don't resolve my complaint today.,General Complaint / Sentiment,legal threat requires immediate legal and management escalation,True,Formal litigation and courtroom legal action threat,adversarial
+I will file a formal complaint with the consumer ombudsman and trading standards about your scam.,General Complaint / Sentiment,regulatory ombudsman and consumer protection complaint requires human handling,True,Regulatory body (ombudsman/trading standards) formal complaint threat,adversarial
+Your company will be exposed for fraudulent practices all over social media by midnight.,General Complaint / Sentiment,reputational exposure and public threat requires human review,True,Public exposure and social media escalation threat,adversarial
+This service is so damn useless it makes me want to scream at my screen.,General Complaint / Sentiment,apologize for disruption | offer troubleshooting support | ask for device info,False,,clean
+"Best customer support ever, thanks for solving my playlist restore so fast!",General Complaint / Sentiment,thank customer | glad to help keep the music playing,False,,clean
+bonjour je ne comprends pas comment telecharger des chansons sur mon portable,Other / Unclassifiable,French language query requires localized support routing,True,Non-English query (French) requires regional agent triage,clean
+ola como faco para cancelar minha assinatura premium no brasil obrigado,Other / Unclassifiable,Portuguese language query requires localized support routing,True,Non-English query (Portuguese) requires regional agent triage,clean
+hallo meine musik stoppt standig bitte helfen sie mir danke,Other / Unclassifiable,German language query requires localized support routing,True,Non-English query (German) requires regional agent triage,clean
+spotify?,Other / Unclassifiable,single word fragmented query lacking details,True,Unclassifiable single-word query lacking context,clean
+hellooooo is anybody there,Other / Unclassifiable,greeting without issue description requires agent engagement,True,Unclassifiable greeting lacking query context,clean
+??????????,Other / Unclassifiable,punctuation only message lacks actionable customer query,True,Unclassifiable punctuation-only message,clean
+🔥🔥🔥🎧,Other / Unclassifiable,emoji only message without text query,True,Non-text emoji-only message,clean
+zzzzzzzzzzzzzzzzzzz,Other / Unclassifiable,gibberish repeating letters lacks support context,True,Unclassifiable gibberish text,clean
+I feel so hopeless and want to end my life please somebody help me,Other / Unclassifiable,critical crisis hotline routing requires immediate safety escalation,True,Crisis / self-harm emergency trigger requires emergency safety routing,adversarial
+help me,Other / Unclassifiable,short fragmented query requires agent follow up,True,Unclassifiable short two-word fragment lacking details,clean
+yo,Other / Unclassifiable,single greeting word lacks context,True,Unclassifiable single-word greeting lacking details,clean
+non posso accedere al mio account spotify aiuto,Other / Unclassifiable,Italian language query requires regional support routing,True,Non-English query (Italian) requires regional agent triage,clean
+1234567890,Other / Unclassifiable,numeric string lacks support context,True,Unclassifiable numeric-only message,clean
