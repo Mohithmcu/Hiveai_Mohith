@@ -15,7 +15,6 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 from sklearn.cluster import KMeans
-from sklearn.metrics import silhouette_score
 from sentence_transformers import SentenceTransformer
 
 # Windows console encoding safeguard
@@ -51,19 +50,6 @@ def embed(texts: list[str], model: SentenceTransformer) -> np.ndarray:
         normalize_embeddings=True,
     )
     return embeddings.astype("float32")
-
-def choose_k(embeddings: np.ndarray, k_range=range(5, 12)) -> int:
-    print("Sweeping k for silhouette score ...")
-    scores = {}
-    for k in k_range:
-        km = KMeans(n_clusters=k, random_state=42, n_init=10)
-        labels = km.fit_predict(embeddings)
-        s = silhouette_score(embeddings, labels, sample_size=2000, random_state=42)
-        scores[k] = round(s, 4)
-        print(f"  k={k}  silhouette={s:.4f}")
-    best_k = max(scores, key=scores.get)
-    print(f"Best k = {best_k}  (score={scores[best_k]})")
-    return best_k
 
 def main():
     CACHE_DIR.mkdir(parents=True, exist_ok=True)

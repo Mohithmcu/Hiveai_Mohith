@@ -4,6 +4,9 @@ data/cache/*
 !data/cache/intent_map.json
 !data/cache/.gitkeep
 
+# pre-extracted spotify dataset — committed to repo so run.ps1 works out of the box
+# data/spotify_twcs.csv  <-- intentionally NOT ignored
+
 # env & secrets
 .env
 *.env
@@ -19,7 +22,7 @@ __pycache__/
 venv/
 ENV/
 
-# embeddings & binary cache
+# embeddings & binary cache (auto-generated, not committed)
 *.npy
 *.index
 *.parquet

@@ -21,7 +21,7 @@ function Run-Command {
 }
 
 Write-Host "`n=== Spotify AI Support Agent ===" -ForegroundColor Cyan
-Write-Host "Brand: SpotifyCares | Model: gemini-3.6-flash`n"
+Write-Host "Brand: SpotifyCares | Model: gemini-1.5-flash`n"
 
 # 1. Check .env
 if (-not (Test-Path ".env")) {
@@ -42,9 +42,9 @@ if ($envContent -match "your_gemini_api_key_here") {
 Write-Host "[1/7] Checking dependencies..." -ForegroundColor Green
 Run-Command "pip install -r requirements.txt -q"
 
-# 3. Ingest
+# 3. Ingest (uses data/spotify_twcs.csv from repo — no manual download needed)
 if (-not $SkipIngest -and (-not (Test-Path "data/cache/spotify_threads.parquet"))) {
-    Write-Host "[2/7] Ingesting SpotifyCares threads..." -ForegroundColor Green
+    Write-Host "[2/7] Ingesting SpotifyCares threads from spotify_twcs.csv..." -ForegroundColor Green
     Run-Command "python src/ingest.py"
 } else {
     Write-Host "[2/7] Skipping ingest (cache exists or -SkipIngest specified)" -ForegroundColor Yellow

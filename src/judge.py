@@ -24,7 +24,7 @@ if sys.platform == "win32":
 
 load_dotenv()
 
-JUDGE_MODEL = os.getenv("JUDGE_MODEL", "gemini-3.6-flash")
+JUDGE_MODEL = os.getenv("JUDGE_MODEL", "gemini-1.5-flash")
 
 JUDGE_PROMPT = """\
 You are an expert evaluator for AI-generated customer support replies.
@@ -72,8 +72,9 @@ class Judge:
         if not api_key:
             raise ValueError("GEMINI_API_KEY not set.")
         genai.configure(api_key=api_key)
-        self.model      = genai.GenerativeModel(JUDGE_MODEL)
+        self.model            = genai.GenerativeModel(JUDGE_MODEL)
         self.gemini_available = True
+        self._last_call       = 0.0  # required by rate-limiter in _call()
 
     def _call(self, prompt: str) -> str:
         if not self.gemini_available:

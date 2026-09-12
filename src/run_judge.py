@@ -54,7 +54,10 @@ def main():
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
     out_df.to_csv(args.out, index=False)
     print(f"Judge scores saved -> {args.out}")
-    scored = out_df[~out_df.get("skipped", pd.Series(False, index=out_df.index)).fillna(False)]
+    if "skipped" in out_df.columns:
+        scored = out_df[~out_df["skipped"].fillna(False)]
+    else:
+        scored = out_df
     if len(scored):
         print(f"Composite avg: {scored['composite'].mean():.2f}  (n={len(scored)})")
 

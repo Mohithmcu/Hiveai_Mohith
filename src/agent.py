@@ -35,7 +35,7 @@ INDEX_PATH    = CACHE_DIR / "retrieval_index.index"
 CORPUS_PATH   = CACHE_DIR / "retrieval_corpus.parquet"
 INTENT_MAP    = CACHE_DIR / "intent_map.json"
 
-GEN_MODEL     = os.getenv("GENERATION_MODEL", "gemini-3.6-flash")
+GEN_MODEL     = os.getenv("GENERATION_MODEL", "gemini-1.5-flash")
 EMBED_MODEL   = "sentence-transformers/all-MiniLM-L6-v2"
 TOP_K         = 5
 MIN_SIM       = 0.40   # below this → soft escalation trigger

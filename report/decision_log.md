@@ -32,7 +32,7 @@ If a message qualifies for escalation, we skip the draft entirely. Rationale: (a
 
 A missed escalation (false negative) means an auto-reply goes to a customer who needed human attention — reputational risk, possible legal exposure. A false positive means a human agent reviews an unnecessary ticket — wasted time but recoverable. Given this asymmetry, we optimize for and report recall on the escalate=True class as the primary number. F1 is reported as secondary context.
 
-## 8. Same model (Gemini 3.6 Flash) for generation and judge
+## 8. Same model (Gemini 1.5 Flash) for generation and judge
 
 Acknowledged as a limitation. The alternative (two providers) adds dependency complexity and potential reproducibility issues. Same-model judge bias is explicitly called out in the misleading-number section: "judge may systematically prefer output style of its own model family." Treat judge scores as relative comparisons between conditions, not absolute quality measures.
 
@@ -51,6 +51,6 @@ Using all 43k pairs would improve recall but slow index build and query time. 8k
 ## 12. Out-of-scope items and why
 
 - **Multi-turn dialogue state**: Twitter threads are multi-turn but the grounding corpus is single (customer_msg, brand_reply) pairs. Supporting full thread context would require thread reconstruction across all 2.8M rows and a context-window-aware prompt. Explicitly out of scope; named limitation.
-- **Non-English messages**: Classified as "Other / Unclassifiable" and escalated. Gemini 3.6 Flash handles non-English but the retrieval corpus is English-only, making grounding unreliable.
+- **Non-English messages**: Classified as "Other / Unclassifiable" and escalated. Gemini 1.5 Flash handles non-English but the retrieval corpus is English-only, making grounding unreliable.
 - **Live handoff integration**: No actual Zendesk/Freshdesk integration — escalation outputs a structured JSON decision that a real system would consume.
 - **Sentiment intensity scoring**: General Complaint / Sentiment is a single class; intensity within it (annoyed vs. furious) could refine escalation. Out of scope for this time box.
