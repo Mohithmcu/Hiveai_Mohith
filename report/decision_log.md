@@ -12,6 +12,8 @@ AmazonHelp is the largest brand (42k replies in first 500k rows) but spans 15+ d
 
 Hand-picking intents from intuition introduces cherry-picking bias — you design for the cases you can already see. Clustering first, then reading 10-15 examples per cluster to name them, grounds the taxonomy in actual data distribution. It also generates a natural "Other / Unclassifiable" bucket from the cluster that doesn't fit cleanly. The clustering notebook (taxonomy.py silhouette sweep output) is reproducible evidence of the process.
 
+**Known limitation:** KMeans cluster indices (0–6) are not guaranteed to be stable across re-runs on different machines. The `INTENT_LABELS` mapping in `taxonomy.py` is hardcoded to the original cluster run. If `taxonomy.py` is re-run from scratch with a different random seed or data sample, cluster 0 may no longer correspond to "App / Playback Bug". This is a named fragility: in a production system, clusters would be anchored by centroid persistence rather than index position.
+
 ## 3. KMeans over HDBSCAN for clustering
 
 HDBSCAN produces variable cluster counts across runs and has noise points (label=-1) that complicate downstream labeling. KMeans with a silhouette sweep gives a deterministic, reproducible result. For a report where the reviewer must reproduce your numbers, determinism beats sophistication.

@@ -3,8 +3,8 @@
 **Hiver SDE Intern Take-Home Project**  
 **Author:** AI Engineering Candidate  
 **Brand:** SpotifyCares  
-**Primary Generation Model:** Gemini 3.6 Flash (`gemini-3.6-flash`)  
-**Judge Model:** Gemini 3.6 Flash (`gemini-3.6-flash`)  
+**Primary Generation Model:** Gemini 1.5 Flash (`gemini-1.5-flash`)  
+**Judge Model:** Gemini 1.5 Flash (`gemini-1.5-flash`)  
 **Embedding / Retrieval Model:** `sentence-transformers/all-MiniLM-L6-v2` + FAISS IndexFlatIP  
 
 ---
@@ -184,7 +184,9 @@ The most illuminating finding in our evaluation is the dramatic contradiction be
 
 **Why this gap matters:** Both metrics ostensibly evaluate whether the agent provides grounded, factual troubleshooting advice. However, they measure fundamentally different properties:
 1. **Automated Faithfulness checks hard factual completeness:** It computes semantic cosine similarity between each sentence in the draft and pre-specified required facts in `ideal_reply_notes` (e.g. "clear storage cache | toggle offline mode | check background battery permissions"). If a draft offers a polite, general response ("Hey! Let's get this fixed. Restart your device and reinstall."), it fails to cover the remaining specific technical propositions, yielding an average score of 0.391.
-2. **The LLM Judge suffers from extreme ceiling effects:** The judge prompt evaluates whether the draft *contradicts* retrieved facts or hallucinates prices. Because the agent never fabricates dollar amounts or policies, the judge awards near-perfect scores (4.94/5.0). In fact, on three out of five dimensions (**Relevance, Tone, and Actionability**), the judge awarded **exactly 5.00 / 5.00**. A judge that awards 5.00 across multiple dimensions is exhibiting a ceiling effect rather than fine-grained discrimination.
+2. **The LLM Judge suffers from extreme ceiling effects and a structural fallback bias:** The judge prompt evaluates whether the draft *contradicts* retrieved facts or hallucinates prices. Because the agent never fabricates dollar amounts or policies, the judge awards near-perfect scores (4.94/5.0). In fact, on three out of five dimensions (**Relevance, Tone, and Actionability**), the judge awarded **exactly 5.00 / 5.00**. A judge that awards 5.00 across multiple dimensions is exhibiting a ceiling effect rather than fine-grained discrimination.
+
+   **Important transparency note:** `judge.py` includes a deterministic fallback rubric that activates when the Gemini API is unavailable (e.g., quota exceeded or network failure). This fallback awards near-perfect scores to any reply that: (a) starts with "Hey", (b) is under 280 characters, and (c) contains action verbs like "Restart", "Clear", or "DM". Our agent's templated fallback replies satisfy all three conditions by design — meaning the fallback judge is measuring our output format, not quality. Reviewers should treat the **4.99/5.0 composite as an upper bound**, and treat the **Faithfulness score of 0.391** as the more conservative and honest quality indicator. Future work should verify Gemini was invoked (not the fallback) for each judge call, and decouple the judge's evaluation criteria from the agent's reply template structure.
 
 ### 2. Escalation Recall Statistical Caveat (92.7% on 41 Positive Items)
 On our 160-sample evaluation, the escalation engine intercepted 38 out of 41 ground-truth escalations (92.7% recall, 95% bootstrap CI: [0.830, 1.000]).
@@ -232,16 +234,16 @@ Deep-dive auditing of error cases across our 160-sample evaluation identified fi
 ## 9. Operational & Production Readiness
 
 ### 9.1 Latency and Rate Limit Budget
-- **Classification Latency:** ~420ms (Gemini 3.6 Flash).
+- **Classification Latency:** ~420ms (Gemini 1.5 Flash).
 - **FAISS Retrieval Latency:** ~18ms (8,000 vectors, $d=384$ using IndexFlatIP).
-- **Draft Generation Latency:** ~680ms (conditioned on 3 historical examples).
+- **Draft Generation Latency:** ~680ms (conditioned on 3 historical examples, Gemini 1.5 Flash).
 - **Total Pipeline Latency:** ~1,150ms per customer interaction.
 - **Throughput Management:** Gemini free tier allows 15 RPM. The production runner implements an internal rate-limiter enforcing a 4.1s spacing interval between external API invocations.
 
 ### 9.2 Token Economics (Cost per 10k Interactions)
 - Average prompt size: 380 tokens.
 - Average completion size: 45 tokens.
-- At Gemini 3.6 Flash pricing ($0.075 / 1M input tokens, $0.30 / 1M output tokens):
+- At Gemini 1.5 Flash pricing ($0.075 / 1M input tokens, $0.30 / 1M output tokens):
   - 10,000 queries = 3.8M input tokens ($0.285) + 0.45M output tokens ($0.135) = **$0.42 per 10,000 customer tickets**.
   - Highly cost-effective relative to human tier-1 triage ($3.00–$6.00 per handled ticket).
 
